@@ -1,20 +1,13 @@
 fn main() {
-    //variables:
-    let y = 1;//inmutable variable
-    let mut x = 5;//mutable variable
-    println!("The value of x is: {}", x);
-    x = 6;
-    println!("The value of x is: {}", x);
 
-    //constants:
-    const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+    //Scalar Types:
 
-    //shadowing
-    let z = 5;
-    let z = z + 1;
-    {
-        let z = z * 2;
-        println!("The value of z in the inner scope is: {}", z);
-    }
-    println!("The value of z is: {}", z);
+    //- integer:
+    //8, 16, 32, 64, 128 (length: bits) and isize or usize (length: arch)
+    //unsigned (only positive)
+    let num1: u8 = 1; //(0 - 255)
+    //signed (could be negative or positive)
+    let num2: i8 = -1; //(-128 - 127)
+    println!("{}", num1);
+    println!("{}", num2);
 }
