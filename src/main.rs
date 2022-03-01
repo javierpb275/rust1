@@ -1,29 +1,19 @@
-use std::io;
-
 fn main() {
 
-    //Invalid Array Element Access
+    //Functions
 
-    let a = [1, 2, 3, 4, 5];
+    println!("hello world!");
 
-    println!("Please enter an array index.");
+    another_function(3);
 
-    let mut index = String::new();
+    print_labeled_measurement(5, 'h');
 
-    io::stdin()
-        .read_line(&mut index)
-        .expect("Failed to read line");
+}
 
-    let index: usize = index
-        .trim()
-        .parse()
-        .expect("Index entered was not a number");
+fn another_function(x: i32) {
+    println!("value of x is {}", x);
+}
 
-    let element = a[index];
-
-    println!(
-        "The value of the element at index {} is: {}",
-        index, element
-    );
-    
+fn print_labeled_measurement(value: i32, unit_label: char) {
+    println!("The measurement is: {}{}", value, unit_label);
 }
