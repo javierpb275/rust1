@@ -2,40 +2,22 @@ fn main() {
 
     //control flow
 
-    //loops
-    let mut count = 0;
-    'counting_up: loop {
-        println!("count = {}", count);
-        let mut remaining = 10;
+    //loops with while
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
 
-        loop {
-            println!("remaining = {}", remaining);
-            if remaining == 9 {
-                break;
-            }
-            if count == 2 {
-                break 'counting_up;
-            }
-            remaining -= 1;
-        }
+    while index < 5 {
+        println!("the value is: {}", a[index]);
 
-        count += 1;
+        index += 1;
     }
-    println!("End count = {}", count);
-    //The first break that doesn’t specify a label will exit the inner loop only. 
-    //The break 'counting_up; statement will exit the outer loop. 
 
-    //returning values from loops
-    let mut counter = 0;
+    println!("--------------------------");
 
-    let result = loop {
-        counter += 1;
+    //loops with for
+    let b = [10, 20, 30, 40, 50];
 
-        if counter == 10 {
-            break counter * 2;
-        }
-    };
-
-    println!("The result is {}", result);
-    //you can add the value you want returned after the break expression you use to stop the loop
+    for element in b {
+        println!("the value is: {}", element);
+    }
 }
