@@ -2,22 +2,40 @@ fn main() {
 
     //control flow
 
-    //if, else, else if
-    let number = 6;
+    //loops
+    let mut count = 0;
+    'counting_up: loop {
+        println!("count = {}", count);
+        let mut remaining = 10;
 
-    if number % 4 == 0 {
-        println!("number is divisible by 4");
-    } else if number % 3 == 0 {
-        println!("number is divisible by 3");
-    } else if number % 2 == 0 {
-        println!("number is divisible by 2");
-    } else {
-        println!("number is not divisible by 4, 3, or 2");
+        loop {
+            println!("remaining = {}", remaining);
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
     }
+    println!("End count = {}", count);
+    //The first break that doesn’t specify a label will exit the inner loop only. 
+    //The break 'counting_up; statement will exit the outer loop. 
 
-    let condition = true;
-    let number = if condition { 5 } else { 6 };
+    //returning values from loops
+    let mut counter = 0;
 
-    println!("The value of number is: {}", number);
+    let result = loop {
+        counter += 1;
 
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!("The result is {}", result);
+    //you can add the value you want returned after the break expression you use to stop the loop
 }
