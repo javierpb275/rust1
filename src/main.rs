@@ -2,22 +2,9 @@ fn main() {
 
     //control flow
 
-    //loops with while
-    let a = [10, 20, 30, 40, 50];
-    let mut index = 0;
-
-    while index < 5 {
-        println!("the value is: {}", a[index]);
-
-        index += 1;
+    for number in (1..4).rev() {
+        println!("{}!", number);
     }
-
-    println!("--------------------------");
-
-    //loops with for
-    let b = [10, 20, 30, 40, 50];
-
-    for element in b {
-        println!("the value is: {}", element);
-    }
+    println!("LIFTOFF!!!");
+    //3! 2! 1! LIFTOFF!!!
 }
