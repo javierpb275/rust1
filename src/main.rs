@@ -2,18 +2,20 @@ fn main() {
 
     //ownership
 
-    //string type
+    //memory and allocation
 
-    let mut s = String::from("hello");
+    {
+        let s = String::from("hello"); // s is valid from this point forward
 
-    s.push_str(", world!"); // push_str() appends a literal to a String
-
-    println!("{}", s); // This will print `hello, world!`
-
-    /*
-    The double colon :: operator allows us to namespace this particular from function 
-    under the String type rather than using some sort of name like string_from. 
-    when we call String::from, its implementation requests the memory it needs. 
-    This is pretty much universal in programming languages.
-    */
+        // do stuff with s
+    }                                  // this scope is now over, and s is no
+                                       // longer valid
 }
+
+/*
+Rust takes a different path: the memory is automatically returned once the variable that owns it goes out of scope.
+There is a natural point at which we can return the memory our String needs to the allocator: 
+when s goes out of scope. When a variable goes out of scope, Rust calls a special function for us. 
+This function is called drop, and it’s where the author of String can put the code to return the memory. 
+Rust calls drop automatically at the closing curly bracket.
+*/
